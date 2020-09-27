@@ -17,6 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7
       - uses: actions/setup-node@v1
@@ -28,6 +29,8 @@ jobs:
       - name: Install postgree dependent libraries
         run: sudo apt-get install libpq-dev
       - run: bundle install
+      - run: yarn lint
+      - run: yarn client:install
       - name: Setup Database
         run: |
           cp config/database.ci.yml config/database.yml
@@ -38,8 +41,7 @@ jobs:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-      - run: yarn client:install
-      - run: yarn lint
+
       - name: Run Tests
         run: yarn test
         env:
