@@ -1,5 +1,6 @@
 {
   "name": "product-shopping",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "cd client && yarn install && yarn build && cd ..",
     "deploy": "cp -a client/build/. public/",
