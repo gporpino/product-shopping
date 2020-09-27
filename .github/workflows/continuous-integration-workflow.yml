@@ -1,0 +1,23 @@
+name: Unit Tests
+
+on: [push, pull_request]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '13'
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      - run: bundle install
+      - run: yarn client:install
+      - run: yarn lint
+      - run: yarn test
