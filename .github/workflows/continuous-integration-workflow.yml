@@ -29,8 +29,8 @@ jobs:
       - name: Install postgree dependent libraries
         run: sudo apt-get install libpq-dev
       - run: bundle install
-      - run: yarn lint
       - run: yarn client:install
+      - run: yarn lint
       - name: Setup Database
         run: |
           cp config/database.ci.yml config/database.yml
@@ -41,7 +41,6 @@ jobs:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-
       - name: Run Tests
         run: yarn test
         env:
