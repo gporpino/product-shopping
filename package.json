@@ -1,10 +1,22 @@
 {
   "name": "product-shopping",
   "scripts": {
-    "build": "cd client && npm install && npm run build && cd ..",
+    "build": "cd client && yarn install && yarn build && cd ..",
     "deploy": "cp -a client/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'",
+    "postinstall:client": "yarn build && yarn deploy && echo 'Client built!'",
+    "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then yarn postinstall:client ; fi",
     "lint": "cd client && yarn lint && cd ..",
-    "lint:fix": "cd client && yarn lint:fix && cd .."
+    "lint:fix": "cd client && yarn lint:fix && cd ..",
+    "test:client": "cd client && yarn test:ci && cd ..",
+    "test:server": "bundle exec rake spec",
+    "test": "yarn test:client && yarn test:server"
+  },
+  "dependencies": {
+    "husky": "^4.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test"
+    }
   }
 }
