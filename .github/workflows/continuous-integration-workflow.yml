@@ -17,7 +17,8 @@ jobs:
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install
-      - run: bundle install
+      - run: bundle install --path=/cache
       - run: yarn client:install
       - run: yarn lint
+      - run: bundle exec rake db:create db:migrate RAILS_ENV=test
       - run: yarn test
