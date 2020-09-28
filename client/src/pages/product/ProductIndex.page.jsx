@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-import ProductList from '../../components/productlist/ProductList.component';
+import ProductList from '../../components/product-list/ProductList.component';
 
 class ProductIndex extends Component {
   constructor(props) {

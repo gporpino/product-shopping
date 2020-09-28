@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import navigate from '../../navigate';
 
-import ProductForm from '../../components/productform/ProductForm.component';
+import ProductForm from '../../components/product-form/ProductForm.component';
 
 class ProductEdit extends Component {
   constructor(props) {

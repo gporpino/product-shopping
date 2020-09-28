@@ -5,7 +5,7 @@ import './App.css';
 
 import Home from './pages/home/Home.page';
 
-import Header from './containers/header/Header';
+import Header from './sections/header/Header';
 import ProductIndex from './pages/product/ProductIndex.page';
 import ProductEdit from './pages/product/ProductEdit.page';
 import ProductNew from './pages/product/ProductNew.page';

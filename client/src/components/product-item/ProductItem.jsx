@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import ConfirmButton from '../confirmbutton/ConfirmButton.component';
+import ConfirmButton from '../confirm-button/ConfirmButton.component';
 
 class ProductItem extends Component {
   constructor(props) {

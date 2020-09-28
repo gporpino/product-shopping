@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Button } from 'react-bootstrap';
 
-import ConfirmButton from '../../components/confirmbutton/ConfirmButton.component';
+import ConfirmButton from '../../components/confirm-button/ConfirmButton.component';
 
 class ProductShow extends Component {
   constructor(props) {

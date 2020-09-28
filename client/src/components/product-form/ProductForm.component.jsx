@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
-import TextMessages from '../textmessages/TextMessages.component';
+import TextMessages from '../text-messages/TextMessages.component';
 
 class ProductForm extends Component {
   constructor(props) {
