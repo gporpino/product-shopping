@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import navigate from '../../navigate';
+import PropTypes from 'prop-types';
 
 import { Button } from 'react-bootstrap';
 
 import ConfirmButton from '../../components/confirmbutton/ConfirmButton.component';
 
-class ProductEdit extends Component {
+class ProductShow extends Component {
   constructor(props) {
     super(props);
 
@@ -83,4 +84,8 @@ class ProductEdit extends Component {
     return null;
   }
 }
-export default ProductEdit;
+export default ProductShow;
+
+ProductShow.propTypes = {
+  service: PropTypes.object.isRequired,
+};

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import navigate from '../../navigate';
 
 import ProductForm from '../../components/productform/ProductForm.component';
@@ -72,3 +73,8 @@ class ProductEdit extends Component {
   }
 }
 export default ProductEdit;
+
+ProductEdit.propTypes = {
+  id: PropTypes.number.isRequired,
+  service: PropTypes.object.isRequired,
+};

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 import ConfirmButton from '../confirmbutton/ConfirmButton.component';
 
@@ -54,3 +55,7 @@ class ProductItem extends Component {
 }
 
 export default ProductItem;
+
+ProductItem.propTypes = {
+  product: PropTypes.object.isRequired,
+};

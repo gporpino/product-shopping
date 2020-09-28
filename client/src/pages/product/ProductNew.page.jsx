@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import navigate from '../../navigate';
 
 import ProductForm from '../../components/productform/ProductForm.component';
@@ -50,3 +51,7 @@ class ProductNew extends Component {
   }
 }
 export default ProductNew;
+
+ProductNew.propTypes = {
+  service: PropTypes.object.isRequired,
+};

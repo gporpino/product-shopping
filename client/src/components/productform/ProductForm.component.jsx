@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 import TextMessages from '../textmessages/TextMessages.component';
 
@@ -109,3 +109,7 @@ class ProductForm extends Component {
   }
 }
 export default ProductForm;
+
+ProductForm.propTypes = {
+  onSave: PropTypes.func.isRequired,
+};

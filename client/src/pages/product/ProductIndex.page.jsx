@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import ProductList from '../../components/productlist/ProductList.component';
 
@@ -33,7 +33,6 @@ class ProductIndex extends Component {
         this.setState({
           products: response.data,
         });
-        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -74,3 +73,7 @@ class ProductIndex extends Component {
 }
 
 export default ProductIndex;
+
+ProductIndex.propTypes = {
+  service: PropTypes.object.isRequired,
+};

@@ -10,17 +10,17 @@ const mockProducts = [
 ];
 
 test('renders no products and match snapshot', () => {
-  const wrapper = render(<ProductList />);
+  const wrapper = render(<ProductList products={[]} />);
   expect(wrapper).toMatchSnapshot();
 });
 
 test('renders with products and match snapshot', () => {
-  const wrapper = render(<ProductList />);
+  const wrapper = render(<ProductList products={[]} />);
   expect(wrapper).toMatchSnapshot();
 });
 
 test('renders no products', () => {
-  const wrapper = shallow(<ProductList />);
+  const wrapper = shallow(<ProductList products={[]} />);
   expect(wrapper.find('tbody tr').length).toBe(1);
   expect(wrapper.find('tbody tr').text()).toBe('No products');
 });

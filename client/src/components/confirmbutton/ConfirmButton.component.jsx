@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Button } from 'react-bootstrap';
 
@@ -18,3 +19,7 @@ const ConfirmButton = (props) => (
 );
 
 export default ConfirmButton;
+
+ConfirmButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};

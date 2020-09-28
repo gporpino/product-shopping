@@ -14,7 +14,7 @@ test('on submit click', () => {
 
 test('on change name', () => {
   const newValue = 'NewValue';
-  const wrapper = shallow(<ProductForm></ProductForm>);
+  const wrapper = shallow(<ProductForm onSave={() => {}}></ProductForm>);
   wrapper.find('.productName').simulate('change', {
     target: {
       value: newValue,
@@ -25,7 +25,7 @@ test('on change name', () => {
 
 test('on change price', () => {
   const newValue = 10;
-  const wrapper = shallow(<ProductForm></ProductForm>);
+  const wrapper = shallow(<ProductForm onSave={() => {}}></ProductForm>);
   wrapper.find('.productPrice').simulate('change', {
     target: {
       value: newValue,
