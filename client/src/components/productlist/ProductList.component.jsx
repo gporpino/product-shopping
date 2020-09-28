@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 
 import { Table, Button } from 'react-bootstrap';
 
-import ConfirmButton from '../confirmbutton/ConfirmButton.component';
+import ProductItem from '../product-item/ProductItem';
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
-
-    this.onDelete = this.onDelete.bind(this);
-  }
-
-  onDelete(id) {
-    this.props.onDelete(id);
   }
 
   render() {
@@ -34,38 +28,11 @@ class ProductList extends Component {
           ) : (
             this.props.products.map((product) => {
               return (
-                <tr key={product.id}>
-                  <td>{product.id}</td>
-                  <td>{product.name}</td>
-                  <td>{product.price}</td>
-                  <td>
-                    <Button
-                      href={`/products/${product.id}`}
-                      variant='secondary'
-                      size='sm'
-                      className='mr-2'
-                    >
-                      Show
-                    </Button>
-                    <Button
-                      href={`/products/${product.id}/edit`}
-                      variant='secondary'
-                      size='sm'
-                      className='mr-2'
-                    >
-                      Edit
-                    </Button>
-                    <ConfirmButton
-                      size='sm'
-                      message={`Delete ${product.name}?`}
-                      onClick={() => {
-                        this.onDelete(product.id);
-                      }}
-                    >
-                      Delete
-                    </ConfirmButton>
-                  </td>
-                </tr>
+                <ProductItem
+                  key={product.id}
+                  product={product}
+                  onDelete={this.props.onDelete}
+                ></ProductItem>
               );
             })
           )}

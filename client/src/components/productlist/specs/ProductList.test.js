@@ -27,5 +27,5 @@ test('renders no products', () => {
 
 test('renders with products', () => {
   const wrapper = shallow(<ProductList products={mockProducts} />);
-  expect(wrapper.find('tbody tr').length).toBe(3);
+  expect(wrapper.find('tbody').children().length).toBe(3);
 });
