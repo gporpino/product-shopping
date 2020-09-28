@@ -10,6 +10,7 @@ import ProductIndex from './pages/product/ProductIndex.page';
 import ProductEdit from './pages/product/ProductEdit.page';
 import ProductNew from './pages/product/ProductNew.page';
 import ProductShow from './pages/product/ProductShow.page';
+import NotFound from './pages/error/NotFound.page';
 
 import productService from './services/Product.service';
 
@@ -50,6 +51,10 @@ function App() {
 
             <Route path='/' exact>
               <Home />
+            </Route>
+
+            <Route path='/not-found' exact>
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </div>

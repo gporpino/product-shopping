@@ -22,7 +22,7 @@ class ProductEdit extends Component {
         this.setState({ product: response.data });
       })
       .catch((e) => {
-        console.log(e);
+        navigate.to('/not-found');
       });
   }
 

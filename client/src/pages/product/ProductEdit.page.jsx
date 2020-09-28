@@ -29,7 +29,7 @@ class ProductEdit extends Component {
         this.form.current.setPrice(response.data.price);
       })
       .catch((e) => {
-        console.log(e);
+        navigate.to('/not-found');
       });
   }
 
