@@ -45,7 +45,7 @@ function App() {
             ></Route>
 
             <Route path='/products' exact>
-              <ProductIndex />
+              <ProductIndex service={productService} />
             </Route>
 
             <Route path='/' exact>

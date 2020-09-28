@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import ProductService from '../../services/Product.service';
+import { Row, Col, Button } from 'react-bootstrap';
 import ProductList from '../../components/productlist/ProductList.component';
 
 class ProductIndex extends Component {
   constructor(props) {
     super(props);
 
-    this.getProducts = this.getProducts.bind(this);
+    // this.onClick = this.onClick.bind(this);
 
     this.state = {
       products: [],
@@ -21,8 +21,13 @@ class ProductIndex extends Component {
     this.getProducts();
   }
 
+  service() {
+    return this.props.service;
+  }
+
   getProducts() {
-    ProductService.getAll()
+    this.service()
+      .getAll()
       .then((response) => {
         this.setState({
           products: response.data,
@@ -37,6 +42,16 @@ class ProductIndex extends Component {
   render() {
     return (
       <div className='product-index'>
+        <div className='d-flex'>
+          <div className='p-0 '>
+            <h1>Products</h1>
+          </div>
+          <div className='p-2 ml-auto'>
+            <Button href='/products/new'>New</Button>
+          </div>
+        </div>
+
+        <hr />
         <ProductList products={this.state.products}></ProductList>
       </div>
     );
