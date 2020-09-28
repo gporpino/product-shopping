@@ -1,24 +1,37 @@
-# README
+## Rodando o Projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este é um projeto de POC. Ele foi construído sob boas práticas como TDD e CI.
 
-Things you may want to cover:
+Para configurar as gems e modules.
 
-* Ruby version
+```sh
+bundle install
+yarn install
+```
 
-* System dependencies
+Para rodar execute:
 
-* Configuration
+```sh
+foreman start
+```
 
-* Database creation
+Para rodar os testes execute:
 
-* Database initialization
+```sh
+yarn test
+```
 
-* How to run the test suite
+Para verificar ameaças do código.
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+yarn lint
+```
 
-* Deployment instructions
+## Sobre o projeto
 
-* ...
+O projeto utiliza as ferramentas abaixo:
+
+- Ruby 2.7.1
+- Node v10.15.3
+- Yarn 1.22.4
+- Hushy
