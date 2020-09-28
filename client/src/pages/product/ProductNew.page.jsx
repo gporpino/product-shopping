@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import navigate from '../../navigate';
 
-import ProductService from '../../services/Product.service';
 import ProductForm from '../../components/productform/ProductForm.component';
 
 class ProductNew extends Component {
