@@ -9,6 +9,7 @@ import Header from './containers/header/Header';
 import ProductIndex from './pages/product/ProductIndex.page';
 import ProductEdit from './pages/product/ProductEdit.page';
 import ProductNew from './pages/product/ProductNew.page';
+import ProductShow from './pages/product/ProductShow.page';
 
 import productService from './services/Product.service';
 
@@ -23,13 +24,23 @@ function App() {
               <ProductNew service={productService}></ProductNew>
             </Route>
             <Route
-              path='/products/:id'
+              path='/products/:id/edit'
               exact
               render={(props) => (
                 <ProductEdit
                   id={props.match.params.id}
                   service={productService}
                 ></ProductEdit>
+              )}
+            ></Route>
+            <Route
+              path='/products/:id'
+              exact
+              render={(props) => (
+                <ProductShow
+                  id={props.match.params.id}
+                  service={productService}
+                ></ProductShow>
               )}
             ></Route>
 
