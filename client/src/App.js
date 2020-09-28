@@ -1,28 +1,47 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.css';
 
 import Home from './pages/home/Home.page';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import ProductIndex from './pages/product/ProductIndex.page';
 import Header from './containers/header/Header';
+import ProductIndex from './pages/product/ProductIndex.page';
+import ProductEdit from './pages/product/ProductEdit.page';
+import ProductNew from './pages/product/ProductNew.page';
+
+import productService from './services/Product.service';
 
 function App() {
   return (
     <Router>
       <div className='app'>
         <Header></Header>
+        <div className='page-container'>
+          <Switch>
+            <Route path='/products/new' exact>
+              <ProductNew service={productService}></ProductNew>
+            </Route>
+            <Route
+              path='/products/:id'
+              exact
+              render={(props) => (
+                <ProductEdit
+                  id={props.match.params.id}
+                  service={productService}
+                ></ProductEdit>
+              )}
+            ></Route>
 
-        <Switch>
-          <Route path='/products'>
-            <ProductIndex />
-          </Route>
+            <Route path='/products' exact>
+              <ProductIndex />
+            </Route>
 
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
+            <Route path='/' exact>
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );
