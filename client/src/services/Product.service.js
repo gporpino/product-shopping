@@ -16,6 +16,10 @@ class ProductService {
   update(id, data) {
     return http.put(`/products/${id}`, data);
   }
+
+  delete(id) {
+    return http.delete(`/products/${id}`);
+  }
 }
 
 export default new ProductService();

@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 
-import { Row, Col, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import ProductList from '../../components/productlist/ProductList.component';
 
 class ProductIndex extends Component {
   constructor(props) {
     super(props);
 
-    // this.onClick = this.onClick.bind(this);
+    this.onDelete = this.onDelete.bind(this);
 
     this.state = {
       products: [],
       currentTutorial: null,
       currentIndex: -1,
       searchTitle: '',
+      service: props.service,
     };
   }
 
@@ -39,6 +40,17 @@ class ProductIndex extends Component {
       });
   }
 
+  onDelete(id) {
+    this.service()
+      .delete(id)
+      .then((response) => {
+        this.getProducts();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
   render() {
     return (
       <div className='product-index'>
@@ -52,7 +64,10 @@ class ProductIndex extends Component {
         </div>
 
         <hr />
-        <ProductList products={this.state.products}></ProductList>
+        <ProductList
+          products={this.state.products}
+          onDelete={this.onDelete}
+        ></ProductList>
       </div>
     );
   }
