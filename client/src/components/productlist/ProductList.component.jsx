@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Table, Button } from 'react-bootstrap';
 
+import ConfirmButton from '../confirmbutton/ConfirmButton.component';
+
 class ProductList extends Component {
   constructor(props) {
     super(props);
@@ -38,16 +40,30 @@ class ProductList extends Component {
                   <td>{product.price}</td>
                   <td>
                     <Button
-                      variant='danger'
+                      href={`/products/${product.id}`}
+                      variant='secondary'
                       size='sm'
+                      className='mr-2'
+                    >
+                      Show
+                    </Button>
+                    <Button
+                      href={`/products/${product.id}/edit`}
+                      variant='secondary'
+                      size='sm'
+                      className='mr-2'
+                    >
+                      Edit
+                    </Button>
+                    <ConfirmButton
+                      size='sm'
+                      message={`Delete ${product.name}?`}
                       onClick={() => {
-                        if (window.confirm(`Delete ${product.name}?`)) {
-                          this.onDelete(product.id);
-                        }
+                        this.onDelete(product.id);
                       }}
                     >
                       Delete
-                    </Button>
+                    </ConfirmButton>
                   </td>
                 </tr>
               );

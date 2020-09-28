@@ -12,6 +12,7 @@ class ProductEdit extends Component {
 
     this.state = {
       id: props.id,
+      product: null,
       submitted: false,
     };
   }
@@ -24,13 +25,18 @@ class ProductEdit extends Component {
     this.service()
       .get(this.state.id)
       .then((response) => {
-        this.form.current.setId(response.data.id);
-        this.form.current.setName(response.data.name);
-        this.form.current.setPrice(response.data.price);
+        this.setState({ product: response.data });
+        this.updateChildFields();
       })
       .catch((e) => {
         navigate.to('/not-found');
       });
+  }
+
+  updateChildFields() {
+    this.form.current.setId(this.state.product.id);
+    this.form.current.setName(this.state.product.name);
+    this.form.current.setPrice(this.state.product.price);
   }
 
   onSave(data) {
@@ -59,7 +65,10 @@ class ProductEdit extends Component {
   }
 
   render() {
-    return <ProductForm ref={this.form} onSave={this.onSave}></ProductForm>;
+    if (this.state.product != null) {
+      return <ProductForm ref={this.form} onSave={this.onSave}></ProductForm>;
+    }
+    return null;
   }
 }
 export default ProductEdit;

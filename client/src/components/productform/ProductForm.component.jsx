@@ -93,6 +93,9 @@ class ProductForm extends Component {
           ></TextMessages>
         </Form.Group>
 
+        <Button href='/products' variant='secondary' className='mr-2'>
+          Back to list
+        </Button>
         <Button
           className='submit'
           variant='primary'
